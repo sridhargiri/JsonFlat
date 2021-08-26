@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using WebApplication1.Abstraction;
+using WebApplication1.Implementation;
 
 namespace WebApplication1
 {
@@ -32,6 +34,8 @@ namespace WebApplication1
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WebApplication1", Version = "v1" });
             });
+            services.AddHttpContextAccessor();
+            services.AddScoped<IFlatten, Flatten>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
